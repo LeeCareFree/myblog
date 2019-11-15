@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{95:function(t,e,n){"use strict";n.r(e);var r={name:"V-Footer",props:["author","brand"]},s=n(0),o=Object(s.a)(r,function(){var t=this.$createElement,e=this._self._c||t;return e("footer",[e("p",[this._v("©2019-present "+this._s(this.author))])])},[],!1,null,null,null);e.default=o.exports}}]);

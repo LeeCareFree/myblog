@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+  # These lines should *not* be indented
+media_folder: '/.vuepress/public/uploads' # Media files will be stored in the repo under static/images/uploads
+public_folder: '/uploads' # The src attribute for uploaded media will begin with /images/uploads
+
+site_url: https://vuepress-theme-first.netlify.com
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '_'
+
+collections:
+  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
+    label: 'Post' # Used in the UI
+    folder: 'content/blog' # /content/blog doesn't work on Delete remove root slash!!!
+    filter: { field: 'type', value: 'post' }
+    create: true
+    delete: true
+    slug: '{{year}}_{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          required: true,
+        }
+      - { label: 'Publish Date', name: 'date', widget: 'date', required: true }
+      - { label: 'Author', name: 'author', widget: 'string', required: true }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
+          options: ['coding', 'technews', 'generic'],
+        }
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'post' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'ReadingLayout',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          default: ['javascript', 'html', 'css'],
+          required: false,
+        }
+      - {
+          label: 'Featured Image',
+          name: 'featuredImage',
+          widget: 'image',
+          default: '/uploads/stl.png',
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'products'
+    label: 'Products'
+    folder: 'content/products'
+    filter: { field: 'type', value: 'post' }
+    create: true
+    slug: '{{year}}_{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          required: true,
+        }
+      - { label: 'Publish Date', name: 'date', widget: 'date', required: true }
+      - { label: 'Author', name: 'author', widget: 'string', required: true }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
+          options: ['digital-access', 'digital-download'],
+        }
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'post' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'ReadingLayout',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          default: ['javascript', 'html', 'css', 'c#'],
+          required: false,
+        }
+      - {
+          label: 'Featured Image',
+          name: 'featuredImage',
+          widget: 'image',
+          default: '/uploads/stl.png',
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
